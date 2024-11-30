@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <section className="bg-gray-800 pt-32 pb-24">
+    <section className="pt-32 pb-24">
         <div className="container">
             <h1 className="text-center text-5xl text-white font-bold mb-12">
                 Form Builder

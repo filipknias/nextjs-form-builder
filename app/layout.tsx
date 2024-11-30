@@ -11,7 +11,7 @@ export default function RootLayout({ children }: Readonly<{
 }>) {
   return (
     <html lang="en">
-      <body className="antialiased">
+      <body className="antialiased bg-gray-700">
         {children}
       </body>
     </html>
