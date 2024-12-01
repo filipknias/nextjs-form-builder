@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import Navbar from "./components/Navbar";
 
 export const metadata: Metadata = {
   title: "Form Builder",
@@ -12,6 +13,7 @@ export default function RootLayout({ children }: Readonly<{
   return (
     <html lang="en">
       <body className="antialiased bg-gray-700">
+        <Navbar />
         {children}
       </body>
     </html>
