@@ -1,33 +1,17 @@
-import { Button } from "@/components/ui/button";
-import { Fullscreen, SaveAll, ArrowUpToLine, Ellipsis } from 'lucide-react';
+import { FileText } from 'lucide-react';
+import Link from "next/link";
 
 export default function Toolbar() {
   return (
-    <div className="bg-gray-900 py-4">
-        <div className="px-4">
-            <div className="flex items-center justify-between flex-wrap gap-4">
-                <div className="flex items-center gap-4">
-                    <p className="text-gray-400 font-semibold">
-                        Form:
-                        <span className="text-white font-bold ml-1">Testing form</span>
-                    </p>
-                    <Button variant="outline" size="icon">
-                        <Ellipsis />
-                    </Button>
-                </div>
-                <div className="flex flex-wrap gap-4">
-                    <Button variant="outline">
-                        <Fullscreen className="mr-1" /> Preview
-                    </Button>
-                    <Button variant="outline">
-                        <SaveAll className="mr-1" /> Save
-                    </Button>
-                    <Button variant="gradient">
-                        <ArrowUpToLine className="mr-1" /> Publish
-                    </Button>
-                </div>
+    <div className="hidden lg:block bg-gray-900 py-5 px-12 h-full">
+        <Link href="/">
+            <div className="flex items-center justify-center gap-3 mb-4">
+                <span className="bg-blue-500 w-10 h-10 rounded-full text-white flex items-center justify-center">
+                    <FileText className="h-5" />
+                </span>
+                <h1 className="text-white font-bold text-2xl">Form Builder</h1>
             </div>
-        </div>
+        </Link>
     </div>
   )
 }
