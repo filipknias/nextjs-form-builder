@@ -1,5 +1,5 @@
 import { SidebarFormElement } from "@/features/builder/types/builder-types";
-import { Heading1, Heading2 } from "lucide-react";
+import { Heading1, Heading2, Pilcrow, Minus, SeparatorHorizontal, Type, Binary, SquarePilcrow, Calendar, List, SquareCheck } from "lucide-react";
 
 export const formElements: SidebarFormElement[] = [
     {
@@ -22,7 +22,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Paragraph field',
-        icon: Heading1,
+        icon: Pilcrow,
         type: 'paragraph-field',
         section: 'layout',
         attributes: {
@@ -31,13 +31,13 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Separator field',
-        icon: Heading1,
+        icon: Minus,
         type: 'separator-field',
         section: 'layout',
     },
     {
         label: 'Spacer field',
-        icon: Heading1,
+        icon: SeparatorHorizontal,
         type: 'spacer-field',
         section: 'layout',
         attributes: {
@@ -46,7 +46,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Text field',
-        icon: Heading1,
+        icon: Type,
         type: 'text-field',
         section: 'form',
         attributes: {
@@ -58,7 +58,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Number field',
-        icon: Heading1,
+        icon: Binary,
         type: 'number-field',
         section: 'form',
         attributes: {
@@ -70,7 +70,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Textarea field',
-        icon: Heading1,
+        icon: SquarePilcrow,
         type: 'textarea-field',
         section: 'form',
         attributes: {
@@ -83,7 +83,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Date field',
-        icon: Heading1,
+        icon: Calendar,
         type: 'date-field',
         section: 'form',
         attributes: {
@@ -94,7 +94,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Select field',
-        icon: Heading1,
+        icon: List,
         type: 'select-field',
         section: 'form',
         attributes: {
@@ -107,7 +107,7 @@ export const formElements: SidebarFormElement[] = [
     },
     {
         label: 'Checkbox field',
-        icon: Heading1,
+        icon: SquareCheck,
         type: 'checkbox-field',
         section: 'form',
         attributes: {

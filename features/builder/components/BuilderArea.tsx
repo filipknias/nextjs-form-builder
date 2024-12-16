@@ -1,7 +1,12 @@
+"use client";
+
 import { DragEndEvent, useDndMonitor, useDroppable } from "@dnd-kit/core";
 import { DroppableIds } from "../types/dnd-types";
 import { NewFormElement } from "../types/builder-types";
 import { useBuilderStore } from "../hooks/useBuilderStore";
+import FormElementRenderer from "./FormElementRenderer";
+import ElementDraggableWrapper from "./ElementDraggableWrapper";
+import FormElementOverlay from "./FormElementOverlay";
 
 export default function BuilderArea() {
     const { setNodeRef, isOver } = useDroppable({
@@ -22,8 +27,24 @@ export default function BuilderArea() {
         
     return (
         <div className="bg-gray-900 rounded-lg p-4 flex-1 max-w-2xl mx-auto h-full relative" ref={setNodeRef}>
-            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-12">
-                <h2 className="text-gray-400 text-center font-bold text-3xl select-none">Drop here</h2>
+            <div className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-full px-4">
+                {/* <h2 className="text-gray-400 text-center font-bold text-3xl select-none">Drop here</h2> */}
+            </div>
+            <div className="flex flex-col gap-4">
+                {formElements.map((element) => (
+                    <ElementDraggableWrapper formElement={element} key={element.id}>
+                        <FormElementOverlay id={element.id}>
+                            <FormElementRenderer 
+                                key={element.id}
+                                type={element.type} 
+                                attributes={element.attributes} 
+                            />
+                        </FormElementOverlay>
+                    </ElementDraggableWrapper>
+                ))}
+                {isOver && (
+                    <div className="rounded-md bg-gray-700 w-full h-36"></div>
+                )}
             </div>
         </div>
     )
