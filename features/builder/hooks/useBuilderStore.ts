@@ -4,7 +4,7 @@ import { nanoid } from 'nanoid';
 
 type BuilderStore = {
     formElements: FormElement[];
-    addFormElement: (formElement: NewFormElement, index?: number) => void;
+    addFormElement: (formElement: NewFormElement, index?: number) => FormElement;
     deleteFormElement: (id: string) => void;
     activeElementId: ActiveElementId;
     setActiveElementId: (value: string|null) => void;
@@ -17,19 +17,23 @@ export const useBuilderStore = create<BuilderStore>((set) => ({
 
     addFormElement: (formElement: NewFormElement, index?: number) => {
         const id = nanoid();
+        const newElement = { ...formElement, id };
+
         if (index === undefined) {
-            return set(({ formElements }) => ({ 
-                formElements: [...formElements, { ...formElement, id }] 
+            set(({ formElements }) => ({
+                formElements: [...formElements, newElement],
             }));
+        } else {
+            set(({ formElements }) => {
+                const newElements = [...formElements];
+                newElements.splice(index, 0, newElement);
+                return { 
+                    formElements: newElements.map((element, index) => ({ ...element, indexPosition: index })) 
+                };
+            });
         }
 
-        set(({ formElements }) => {
-            const newElements = [...formElements];
-            newElements.splice(index, 0, { ...formElement, id });
-            return { 
-                formElements: newElements.map((element, index) => ({ ...element, indexPosition: index })) 
-            };
-        });
+        return newElement;
     },
 
     deleteFormElement: (id: string) => {

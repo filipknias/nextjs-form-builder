@@ -17,7 +17,7 @@ export const formElements: SidebarFormElement[] = [
         type: 'subtitle-field',
         section: 'layout',
         attributes: {
-            title: 'Subtitle field',
+            subtitle: 'Subtitle field',
         }
     },
     {
